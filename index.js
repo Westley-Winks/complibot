@@ -81,8 +81,9 @@ app.post('/interactions', async function (req, res) {
   }
 });
 
+const PORT = process.env.PORT || 3000
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log('Listening on port 3000');
 
   // Check if guild commands from commands.js are installed (if not, install them)
