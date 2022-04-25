@@ -2,6 +2,9 @@
 
 Complibot has a quick wit. When called upon, she can `/insult` or `/compliment` a specific user. Within seconds, she thinks of a response (selects a line out of `.txt` files at random) and spits it at whoever the initiator wants.
 
+## Demo
+![Screen recording of complibot responding to a compliment request and then an insult. Compliment says "In high school I bet you were voted “most likely to keep being awesome.” Insult says "All your brain is in that suitcase"](assets/demo.gif)
+
 ## Database
 Complibot only needed to read (scrape) a few articles to learn her responses. Specifically, I used Python to scrape [this site](https://thinkkindness.org/all-things-kindness/a-list-of-100-compliments/) for her compliments and [this one](https://ponly.com/funny-insults/) for the insults. The notebook is in `scraping.ipynb` if you want to see that.
 
