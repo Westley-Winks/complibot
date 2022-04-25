@@ -20,9 +20,6 @@ import {
 
 const app = express();
 
-console.log(process.env.PUBLIC_KEY)
-console.log(process.env.APP_ID)
-
 app.use(express.json({ verify: VerifyDiscordRequest(process.env.PUBLIC_KEY) }));
 
 app.post('/interactions', async function (req, res) {
@@ -87,7 +84,7 @@ app.post('/interactions', async function (req, res) {
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
-  console.log('Listening on port 3000');
+  console.log(`Listening on port ${PORT}`);
 
   // Check if guild commands from commands.js are installed (if not, install them)
   HasGuildCommands(process.env.APP_ID, process.env.GUILD_ID, [
