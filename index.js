@@ -20,6 +20,9 @@ import {
 
 const app = express();
 
+console.log(process.env.PUBLIC_KEY)
+console.log(process.env.APP_ID)
+
 app.use(express.json({ verify: VerifyDiscordRequest(process.env.PUBLIC_KEY) }));
 
 app.post('/interactions', async function (req, res) {
