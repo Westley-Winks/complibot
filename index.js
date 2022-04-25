@@ -42,23 +42,41 @@ app.post('/interactions', async function (req, res) {
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
-          content: 'hello world',
+          content: 'Hello World!',
         },
       });
     } else if (name === 'compliment') {
+        if (!data.options) { // if no user is not specified
+        return res.send({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: getRandomCompliment()
+          },
+        });
+    } else {
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
-          content: getRandomCompliment()
+          content: getRandomCompliment() + ` <@${data.options[0].value}>`
         },
       });
+    }
     } else if (name === "insult") {
-      return res.send({
-        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-        data: {
-          content: getRandomInsult()
-        },
-      });
+        if (!data.options) {
+        return res.send({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: getRandomInsult()
+          },
+        });
+      } else {
+        return res.send({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: getRandomInsult() + ` <@${data.options[0].value}>`
+          }
+        })
+      }
     }
   }
 });

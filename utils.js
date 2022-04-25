@@ -39,11 +39,6 @@ export async function DiscordRequest(endpoint, options) {
   return res;
 }
 
-// Simple method that returns a random emoji from list
-// export function getRandomCompliment() {
-//   const emojiList = fs;
-//   return emojiList[Math.floor(Math.random() * emojiList.length)];
-// }
 export function getRandomCompliment() {
   try {
     const data = fs.readFileSync("compliments.txt", "utf-8");

@@ -19,6 +19,7 @@ async function HasGuildCommand(appId, guildId, command) {
       const installedNames = data.map((c) => c['name']);
       // This is just matching on the name, so it's not good for updates
       if (!installedNames.includes(command['name'])) {
+        // if (true) {
         console.log(`Installing "${command['name']}"`);
         InstallGuildCommand(appId, guildId, command);
       } else {
@@ -51,12 +52,28 @@ export const TEST_COMMAND = {
 
 export const COMPLIMENT_COMMAND = {
     name: "compliment",
-    description: "Send a random compliment",
+    description: "Send a random compliment to specific user",
     type: 1,
+    options: [
+      {
+        name: "user",
+        description: "Who to send compliment to",
+        type: 6,
+        required: false
+      }
+    ]
 };
 
 export const INSULT_COMMAND = {
   name: "insult",
   description: "Send a random insult",
-  type: 1
+  type: 1,
+  options: [
+    {
+      name: "user",
+      description: "Who to send insult to",
+      type: 6,
+      required: false
+    }
+  ]
 }
